@@ -35,6 +35,6 @@
   }
 
   .smbt {
-    @apply w-28 h-8;
+    @apply w-44 h-12 text-xl;
   }
 }
