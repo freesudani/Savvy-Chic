@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { data } from "../data/Navbardata.ts";
+import { Links } from "../models/types.ts";
 
 const Navbar = () => {
   return (
     <div className="static w-full h-32 m-0 px-8 bg-transparent text-black flex justify-end items-center">
-      <div className="hidden md:block cursor-pointer">
+      <div className="hidden md:block cursor-pointer ml-14 mt-14">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-14 w-14"
+          className="h-24 w-24"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -21,24 +23,15 @@ const Navbar = () => {
         </svg>
       </div>
       <nav className="flex px-8 justify-around md:hidden">
-        <Link
-          to="/sections"
-          className="px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
-        >
-          Sections
-        </Link>
-        <Link
-          to="/new"
-          className="px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
-        >
-          Newly Arrived
-        </Link>
-        <Link
-          to="/delivery"
-          className="px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
-        >
-          PickUp & Delivery
-        </Link>
+        {data.map((item: Links, i: number) => (
+          <Link
+            key={i}
+            to={item.path}
+            className="px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
+          >
+            {item.title}
+          </Link>
+        ))}
       </nav>
       <div className="flex px-4 items-center md:hidden ">
         <button className="px-4 outlinedbt smbt uppercase">Sign In</button>

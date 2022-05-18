@@ -23,11 +23,14 @@ module.exports = {
         // => @media (max-width: 400px)  { ... }
       },
       colors: {
-        primary: { 200: "#B55A19", 100: "#C37B47" },
-        secondary: { 200: "#1938B5", 100: "#475FC3" },
+        primary: { 200: "#1938B5", 100: "#475FC3" },
+        secondary: { 200: "#808080", 100: "#999999" },
       },
       fontFamily: {
         rubik: ["Rubik"],
+      },
+      backgroundImage: {
+        "hero-bg": "url('./images/blob-haikei.svg')",
       },
     },
   },

@@ -1,8 +1,12 @@
 import React from "react";
-import Navbar from "./components/Navbar.tsx";
+import Hero from "./components/Hero.tsx";
 
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 };
 
 export default App;
