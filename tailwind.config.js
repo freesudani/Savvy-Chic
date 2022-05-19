@@ -31,6 +31,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-bg": "url('./images/blob-haikei.svg')",
+        "print-bg": "url('./images/wave-haikei.svg')",
       },
     },
   },
