@@ -5,7 +5,7 @@ import Wimage from "../images/w.png";
 
 const Explore = () => {
   return (
-    <div className="relative h-[70vh] w-screen bg-primary-200 my-16 skew-x-[0deg] -skew-y-[1deg] 2xl:h-[45vh] md:h-full">
+    <div className="relative h-[70vh] w-screen bg-primary-200 my-16 skew-x-[0deg] -skew-y-[1deg]  md:h-full">
       <div className="absolute -z-10 right-0">
         <img src={Wimage} alt="W" />
       </div>
