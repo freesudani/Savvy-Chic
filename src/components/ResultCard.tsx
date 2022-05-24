@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Image1 from "../images/anomaly-WWesmHEgXDs-unsplash.jpg";
 import StarIcon from "./StarIcon.tsx";
+import CardColors from "./CardColors.tsx";
 
 const ResultCard = () => {
+  const [favPick, setFavPick] = useState(false);
+  const [colorPick, setColorPick] = useState("");
+  const [quantity, setQuantity] = useState(0);
+  const price = 8;
+
+  const favPickHandler = () => {
+    setFavPick(!favPick);
+  };
+
+  const incrementHandler = () => {
+    if (quantity > 19) {
+      setQuantity(0);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const decrementHandler = () => {
+    if (quantity < 1) {
+      setQuantity(20);
+    } else {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const addToCartHandler = () => {
+    console.log("Item added to Cart");
+  };
+
   return (
     <div className=" w-3/12 h-fit bg-white rounded-lg border-2 shadow-md">
       <div className="relative">
@@ -13,50 +43,46 @@ const ResultCard = () => {
             className="overflow-hidden rounded-t-lg h-96 w-full"
           />
         </div>
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4" onClick={favPickHandler}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-9 w-9"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
+            className="h-10 w-10"
+            viewBox="0 0 20 20"
+            fill={`${!favPick ? "#FFFF" : "#dc2626"}`}
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              fill-rule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clip-rule="evenodd"
             />
           </svg>
         </div>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-around items-center mt-4">
         <h4 className="text-3xl">First Product</h4>
+        <h4>
+          <span className="text-2xl">{price}</span>
+          $/pieace
+        </h4>
       </div>
+
       <div className="flex justify-around items-center w-3/4 mt-7">
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
+        <StarIcon rating={4} />
         <h5>125 reviews</h5>
       </div>
       <div className="grid grid-cols-2 mt-5 mx-1">
         <div>
           <h6 className="text-2xl">Pick A Color</h6>
           <div className="grid grid-cols-3 gap-1 pr-8">
-            <div className="mt-3 border-2 border-solid border-black bg-red-600 w-8 h-8" />
-            <div className="mt-3 border-2 border-solid border-black bg-blue-600 w-8 h-8" />
-            <div className="mt-3 border-2 border-solid border-black bg-yellow-600 w-8 h-8" />
-            <div className="mt-3 border-2 border-solid border-black bg-orange-600 w-8 h-8" />
-            <div className="mt-3 border-2 border-solid border-black bg-pink-600 w-8 h-8" />
+            <CardColors setColorPick={setColorPick} colorPick={colorPick} />
           </div>
           <div className="flex justify-start items-center mt-5">
             <h6 className="text-2xl">Total Price</h6>
-            <h6 className="text-4xl ml-3 bg-primary-100">126$</h6>
+            <h6 className="text-4xl ml-3 bg-primary-100">
+              {price * quantity}$
+            </h6>
           </div>
         </div>
-
         <div>
           <h6 className="text-2xl">Select size</h6>
           <div className="mb-4 mt-3">
@@ -92,6 +118,7 @@ const ResultCard = () => {
             <h6 className="text-2xl">Select Quantity</h6>
             <div className="flex flex-row h-10 w-10/12 mt-3 rounded-lg relative bg-transparent">
               <button
+                onClick={decrementHandler}
                 data-action="decrement"
                 className=" bg-secondary-200 text-black  hover:bg-secondary-100 h-full w-20 rounded-l cursor-pointer outline-none  border-2 border-black border-solid"
               >
@@ -101,9 +128,10 @@ const ResultCard = () => {
                 type="text"
                 className="outline-none focus:outline-none text-center w-full bg-secondary-200 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-black"
                 name="custom-input-number"
-                value="0"
+                value={`${quantity}`}
               />
               <button
+                onClick={incrementHandler}
                 data-action="increment"
                 className="bg-secondary-200 text-black  hover:bg-secondary-100 h-full w-20 rounded-l cursor-pointer outline-none border-2 border-black border-solid"
               >
@@ -114,7 +142,9 @@ const ResultCard = () => {
         </div>
       </div>
       <div className="mt-10 mb-5 flex justify-center items-center">
-        <button className="primarybt mdbt">Add to Cart</button>
+        <button className="primarybt mdbt" onClick={addToCartHandler}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
