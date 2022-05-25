@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
 
-const Navbar = () => {
+const Navbar: FC = () => {
   return (
     <div className="static w-full h-32 m-0 px-8 bg-transparent text-black flex justify-end items-center">
       <div className="hidden md:block cursor-pointer ml-14 mt-14">

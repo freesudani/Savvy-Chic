@@ -1,6 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 
-const CardColors = (props) => {
+interface Props {
+  boxcolors: string[];
+  colorPick: string;
+  setColorPick: any;
+}
+
+const CardColors: FC<Props> = (props) => {
   return (
     <>
       {props.boxcolors.map((col, i) => (

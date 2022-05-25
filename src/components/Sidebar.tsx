@@ -1,15 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
 
-const Sidebar = () => {
+const Sidebar: FC = () => {
   return (
     <div className="fixed z-10 w-80 h-full right-${} bg-white grid items-center top-0 transition-all duration-300 ease-in md:w-screen">
-      <button
-        className="absolute top-4 right-4 bg-transparent border-transparent cursor-pointer outline-none"
-        onClick={closeHandler}
-      >
+      <button className="absolute top-4 right-4 bg-transparent border-transparent cursor-pointer outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"

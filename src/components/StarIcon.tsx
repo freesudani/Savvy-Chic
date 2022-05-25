@@ -1,6 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 
-const StarIcon = (props) => {
+interface Props {
+  rating: number;
+}
+
+const StarIcon: FC<Props> = (props) => {
   return (
     <>
       <svg

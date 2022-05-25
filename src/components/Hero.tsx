@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import Navbar from "./Navbar.tsx";
 import Logo from "../images/logo.png";
 import FashionImage from "../images/Girls-Fashion-Trends_prev_ui.png";
 
-const Hero = () => {
+const Hero: FC = () => {
   return (
     <div className="relative h-screen mb:h-[75rem]  w-screen bg-hero-bg bg-no-repeat bg-center bg-cover">
       <Navbar />

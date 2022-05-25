@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import PartnerLogo from "../images/cecf96b6522f4362aa3b28dbb74c90cc.png";
 
-const Partnering = () => {
+const Partnering: FC = () => {
   return (
     <div className="flex justify-center items-center h-screen lg:h-[80vh]">
       <div className="flex flex-col justify-evenly h-5/6 2xl:h-4/6 w-9/12 shadow-xl rounded-md bg-partner-bg bg-cover bg-center md:h-full">
