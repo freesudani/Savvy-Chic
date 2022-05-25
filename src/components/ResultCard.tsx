@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Image1 from "../images/anomaly-WWesmHEgXDs-unsplash.jpg";
 import StarIcon from "./StarIcon.tsx";
 import CardColors from "./CardColors.tsx";
 
-const ResultCard = () => {
+const ResultCard = ({ item }) => {
   const [favPick, setFavPick] = useState(false);
   const [colorPick, setColorPick] = useState("");
   const [quantity, setQuantity] = useState(0);
-  const price = 8;
 
   const favPickHandler = () => {
     setFavPick(!favPick);
@@ -34,11 +32,11 @@ const ResultCard = () => {
   };
 
   return (
-    <div className=" w-3/12 h-fit bg-white rounded-lg border-2 shadow-md">
+    <div className="h-[520px] w-[350px] bg-white rounded-lg border-2 shadow-md">
       <div className="relative">
         <div>
           <img
-            src={Image1}
+            src={item.image}
             alt="product"
             className="overflow-hidden rounded-t-lg h-96 w-full"
           />
@@ -59,28 +57,30 @@ const ResultCard = () => {
         </div>
       </div>
       <div className="flex justify-around items-center mt-4">
-        <h4 className="text-3xl">First Product</h4>
+        <h4 className="text-3xl uppercase">{item.title}</h4>
         <h4>
-          <span className="text-2xl">{price}</span>
+          <span className="text-2xl">{item.price}</span>
           $/pieace
         </h4>
       </div>
 
       <div className="flex justify-around items-center w-3/4 mt-7">
-        <StarIcon rating={4} />
-        <h5>125 reviews</h5>
+        <StarIcon rating={item.rating} />
+        <h5>{item.numberofreviews} reviews</h5>
       </div>
       <div className="grid grid-cols-2 mt-5 mx-1">
         <div>
           <h6 className="text-2xl">Pick A Color</h6>
           <div className="grid grid-cols-3 gap-1 pr-8">
-            <CardColors setColorPick={setColorPick} colorPick={colorPick} />
+            <CardColors
+              setColorPick={setColorPick}
+              colorPick={colorPick}
+              boxcolors={item.colors}
+            />
           </div>
           <div className="flex justify-start items-center mt-5">
             <h6 className="text-2xl">Total Price</h6>
-            <h6 className="text-4xl ml-3 bg-primary-100">
-              {price * quantity}$
-            </h6>
+            <h6 className="text-4xl ml-3 ">{item.price * quantity}$</h6>
           </div>
         </div>
         <div>
@@ -141,10 +141,16 @@ const ResultCard = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 mb-5 flex justify-center items-center">
-        <button className="primarybt mdbt" onClick={addToCartHandler}>
-          Add to Cart
-        </button>
+      <div className="mt-10 mb-5 flex justify-center items-center ">
+        {item.outofStock ? (
+          <button className="primarybt mdbt opacity-50 cursor-not-allowed">
+            Item Out Of Stock
+          </button>
+        ) : (
+          <button className="primarybt mdbt" onClick={addToCartHandler}>
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );
