@@ -4,7 +4,7 @@ import PartnerLogo from "../images/cecf96b6522f4362aa3b28dbb74c90cc.png";
 const Partnering: FC = () => {
   return (
     <div className="flex justify-center items-center h-screen lg:h-[80vh]">
-      <div className="flex flex-col justify-evenly h-5/6 2xl:h-4/6 w-9/12 shadow-xl rounded-md bg-partner-bg bg-cover bg-center md:h-full">
+      <div className="flex flex-col justify-evenly h-5/6 2xl:h-4/6 w-9/12 shadow-xl rounded-md bg-partner-bg bg-cover bg-center bg-fixed md:h-full">
         <div className="flex justify-center items-center h-36">
           <h2 className="text-white text-7xl md:text-6xl mb:text-center mb:text-5xl">
             Drops 7th August
