@@ -5,6 +5,7 @@ import Partnering from "./components/Partnering.tsx";
 import Explore from "./components/Explore.tsx";
 import Store from "./components/Store.tsx";
 import Subscribe from "./components/Subscribe.tsx";
+import Footer from "./components/Footer.tsx";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Explore />
       <Store />
       <Subscribe />
+      <Footer />
     </div>
   );
 };
