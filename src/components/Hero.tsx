@@ -7,7 +7,6 @@ const Hero: FC = () => {
   return (
     <div className="relative h-screen mb:h-[75rem]  w-screen bg-hero-bg bg-no-repeat bg-center bg-cover">
       <Navbar />
-
       <div className="absolute left-20 top-10 sm:left-10 sm:top-5 mb:left-5">
         <img src={Logo} alt="logo" className="w-60 mb:w-40" />
       </div>

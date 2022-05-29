@@ -1,12 +1,18 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
+import Sidebar from "./Sidebar.tsx";
 
 const Navbar: FC = () => {
+  const [openSidebar, setOpenSidebar] = useState<boolean>(false);
+
   return (
     <div className="static w-full h-32 m-0 px-8 bg-transparent text-black flex justify-end items-center">
-      <div className="hidden md:block cursor-pointer ml-14 mt-14">
+      <div
+        className="hidden md:block cursor-pointer ml-14 mt-14"
+        onClick={() => setOpenSidebar(true)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-24 w-24"
@@ -22,15 +28,20 @@ const Navbar: FC = () => {
           />
         </svg>
       </div>
+      <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
       <nav className="flex px-8 justify-around md:hidden">
         {data.map((item: Links, i: number) => (
-          <Link
+          <NavLink
             key={i}
             to={item.path}
-            className="px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
+            className={(navData) =>
+              navData.isActive
+                ? "px-1 mx-3 text-xl uppercase border-b-2 border-primary-200 hover:border-primary-200 transition-all duration-300"
+                : "px-1 mx-3 text-xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
+            }
           >
             {item.title}
-          </Link>
+          </NavLink>
         ))}
       </nav>
       <div className="flex px-4 items-center md:hidden ">

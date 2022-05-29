@@ -3,13 +3,27 @@ import { Link } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
 
-const Sidebar: FC = () => {
+interface Props {
+  setOpenSidebar: (arg: boolean) => void;
+  openSidebar: boolean;
+}
+
+const Sidebar: FC<Props> = (props) => {
   return (
-    <div className="fixed z-10 w-80 h-full right-${} bg-white grid items-center top-0 transition-all duration-300 ease-in md:w-screen">
-      <button className="absolute top-4 right-4 bg-transparent border-transparent cursor-pointer outline-none">
+    <div
+      className={`fixed z-10  h-screen w-screen  bg-primary-100 text-white grid items-center  ${
+        props.openSidebar
+          ? "translate-x-0  translate-y-[500px]"
+          : "translate-x-full translate-y-[500px]"
+      } duration-500 ease-in-out`}
+    >
+      <button
+        className="absolute top-4 right-4 bg-transparent border-transparent cursor-pointer outline-none"
+        onClick={() => props.setOpenSidebar(false)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-32 w-32"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -27,14 +41,18 @@ const Sidebar: FC = () => {
           <Link
             key={i}
             to={item.path}
-            className="flex justify-center items-center text-xl decoration-0 list-none transition-all duration-200 ease-in-out text-black cursor-pointer hover:text-white hover:bg-primary-200"
+            className={
+              "px-1 py-12 mx-3 text-5xl uppercase border-b-2 border-transparent hover:border-primary-200 transition-all duration-300"
+            }
           >
             {item.title}
           </Link>
         ))}
       </div>
       <div className="flex justify-center">
-        <button className="px-4 outlinedbt mdbt uppercase">Order Now</button>
+        <button className="px-4 outlinedbt border-white text-white lgbt uppercase">
+          Order Now
+        </button>
       </div>
     </div>
   );

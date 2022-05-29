@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import ImgLogo from "../images/logo_prev_ui.png";
 import {
   AiFillFacebook,
@@ -7,7 +7,7 @@ import {
   AiFillYoutube,
 } from "react-icons/ai";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <div className=" bg-black text-white p-5 h-[350px] md:h-[600px]">
       <div className="grid grid-cols-5 gap-y-4  sm:flex sm:justify-between sm:flex-col sm:items-center">
