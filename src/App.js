@@ -8,6 +8,7 @@ import Store from "./components/Store.tsx";
 import Subscribe from "./components/Subscribe.tsx";
 import Footer from "./components/Footer.tsx";
 import Navbar from "./components/Navbar.tsx";
+import Pickup from "./components/Pickup.tsx";
 
 const App = () => {
   return (
@@ -48,10 +49,9 @@ const App = () => {
         <Route
           path="/delivery"
           element={
-            <box>
-              <Navbar />
-              <box>Pickup & Delivery</box>{" "}
-            </box>
+            <>
+              <Pickup />
+            </>
           }
         />
       </Routes>
