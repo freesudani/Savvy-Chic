@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Hero from "./components/Hero.tsx";
 import Print from "./components/Print.tsx";
@@ -9,17 +9,22 @@ import Subscribe from "./components/Subscribe.tsx";
 import Footer from "./components/Footer.tsx";
 import Navbar from "./components/Navbar.tsx";
 import Pickup from "./components/Pickup.tsx";
+import Bracnhes from "./components/Bracnhes.tsx";
+import PickupPoint from "./components/PickupPoint.tsx";
+/* import Sidebar from "./components/Sidebar.tsx"; */
 
-const App = () => {
+const App: FC = () => {
+  const [openSidebar, setOpenSidebar] = useState<boolean>(false);
   return (
-    <div>
+    <div className="overflow-hidden">
+      {/* <Sidebar openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} /> */}
       <Routes>
         <Route path="/" element={<Navigate to="/welcome" />} />
         <Route
           path="/welcome"
           element={
             <>
-              <Hero />
+              <Hero openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
               <Print />
               <Partnering />
               <Explore />
@@ -31,19 +36,19 @@ const App = () => {
         <Route
           path="/sections"
           element={
-            <box>
+            <div>
               <Navbar />
-              <box>Sections</box>
-            </box>
+              <div>Sections</div>
+            </div>
           }
         />
         <Route
           path="/new"
           element={
-            <box>
+            <div>
               <Navbar />
               <div>new</div>
-            </box>
+            </div>
           }
         />
         <Route
@@ -51,6 +56,8 @@ const App = () => {
           element={
             <>
               <Pickup />
+              <Bracnhes />
+              <PickupPoint />
             </>
           }
         />

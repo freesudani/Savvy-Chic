@@ -3,10 +3,18 @@ import Navbar from "./Navbar.tsx";
 import Logo from "../images/logo.png";
 import FashionImage from "../images/Girls-Fashion-Trends_prev_ui.png";
 
-const Hero: FC = () => {
+interface Props {
+  setOpenSidebar: (arg: boolean) => void;
+  openSidebar: boolean;
+}
+
+const Hero: FC<Props> = (props) => {
   return (
     <div className="relative h-screen mb:h-[75rem]  w-screen bg-hero-bg bg-no-repeat bg-center bg-cover">
-      <Navbar />
+      <Navbar
+        openSidebar={props.openSidebar}
+        setOpenSidebar={props.setOpenSidebar}
+      />
       <div className="absolute left-20 top-10 sm:left-10 sm:top-5 mb:left-5">
         <img src={Logo} alt="logo" className="w-60 mb:w-40" />
       </div>

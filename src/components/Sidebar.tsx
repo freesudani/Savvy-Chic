@@ -11,10 +11,10 @@ interface Props {
 const Sidebar: FC<Props> = (props) => {
   return (
     <div
-      className={`fixed z-10  h-screen w-screen  bg-primary-100 text-white grid items-center  ${
+      className={`z-10 absolute  h-screen w-screen  bg-primary-100 text-white grid items-center  ${
         props.openSidebar
-          ? "translate-x-0  translate-y-[500px]"
-          : "translate-x-full translate-y-[500px]"
+          ? "translate-x-0 translate-y-[500px]"
+          : "translate-x-full translate-y-[500px] "
       } duration-500 ease-in-out`}
     >
       <button

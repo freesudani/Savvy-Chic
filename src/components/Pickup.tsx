@@ -6,8 +6,8 @@ const Pickup: FC = () => {
   return (
     <div className="relative h-screen mb:h-[75rem]  w-screen bg-hero-bg bg-no-repeat bg-center bg-cover">
       <Navbar />
-      <div className="ml-[400px] mt-32  w-[850px]  md:ml-48 sm:text-center sm:ml-0 border-8 border-primary-200 skew-x-12">
-        <h1 className="text-9xl sm:text-8xl mb:text-7xl pl-6 bold -skew-x-12 mb:text-white bold uppercase leading-relaxed">
+      <div className="ml-[400px] mt-32  w-[850px] md:w-[500px] lg:ml-[100px]  sm:text-center sm:ml-0 border-8 border-primary-200 skew-x-12">
+        <h1 className="text-9xl md:text-8xl sm:text-7xl mb:text-7xl pl-6 bold -skew-x-12 mb:text-white bold uppercase leading-relaxed">
           Most convenient
           <br />
           shopping Solution
