@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar.tsx";
 import Pickup from "./components/Pickup.tsx";
 import Bracnhes from "./components/Bracnhes.tsx";
 import PickupPoint from "./components/PickupPoint.tsx";
+import New from "./components/New.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -45,10 +46,9 @@ const App: FC = () => {
         <Route
           path="/new"
           element={
-            <div>
-              <Navbar />
-              <div>new</div>
-            </div>
+            <>
+              <New />
+            </>
           }
         />
         <Route
