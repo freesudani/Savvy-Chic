@@ -37,6 +37,7 @@ module.exports = {
         "subscribe-bg":
           "linear-gradient(to right bottom, rgba(128,128,128,1), rgba(153,153,153,0.5)), url('./images/christelle-bourgeois-Aq7paIaerrY-unsplash.jpg')",
         "branches-bg": "url('./images/blue-bg.svg')",
+        "news-bg": "url('./images/blob-scene-haikei.svg')",
       },
     },
   },

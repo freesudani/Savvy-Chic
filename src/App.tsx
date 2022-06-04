@@ -12,6 +12,7 @@ import Pickup from "./components/Pickup.tsx";
 import Bracnhes from "./components/Bracnhes.tsx";
 import PickupPoint from "./components/PickupPoint.tsx";
 import New from "./components/New.tsx";
+import News from "./components/News.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -48,6 +49,7 @@ const App: FC = () => {
           element={
             <>
               <New />
+              <News />
             </>
           }
         />
