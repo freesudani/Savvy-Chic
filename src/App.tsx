@@ -13,6 +13,7 @@ import Bracnhes from "./components/Bracnhes.tsx";
 import PickupPoint from "./components/PickupPoint.tsx";
 import New from "./components/New.tsx";
 import News from "./components/News.tsx";
+import Sources from "./components/Sources.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -50,6 +51,7 @@ const App: FC = () => {
             <>
               <New />
               <News />
+              <Sources />
             </>
           }
         />
