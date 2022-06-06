@@ -7,13 +7,13 @@ import Explore from "./components/Explore.tsx";
 import Store from "./components/Store.tsx";
 import Subscribe from "./components/Subscribe.tsx";
 import Footer from "./components/Footer.tsx";
-import Navbar from "./components/Navbar.tsx";
 import Pickup from "./components/Pickup.tsx";
 import Bracnhes from "./components/Bracnhes.tsx";
 import PickupPoint from "./components/PickupPoint.tsx";
 import New from "./components/New.tsx";
 import News from "./components/News.tsx";
 import Sources from "./components/Sources.tsx";
+import Arrangment from "./components/Arrangment.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -39,10 +39,9 @@ const App: FC = () => {
         <Route
           path="/sections"
           element={
-            <div>
-              <Navbar />
-              <div>Sections</div>
-            </div>
+            <>
+              <Arrangment />
+            </>
           }
         />
         <Route
