@@ -14,6 +14,7 @@ import New from "./components/New.tsx";
 import News from "./components/News.tsx";
 import Sources from "./components/Sources.tsx";
 import Arrangment from "./components/Arrangment.tsx";
+import Sections from "./components/Sections.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -41,6 +42,7 @@ const App: FC = () => {
           element={
             <>
               <Arrangment />
+              <Sections />
             </>
           }
         />

@@ -40,6 +40,8 @@ module.exports = {
         "news-bg": "url('./images/blob-scene-haikei.svg')",
         "sources-bg":
           "linear-gradient(to right bottom, rgba(128,128,128,1), rgba(153,153,153,0.5)), url('./images/pexels-ylanite-koppens-934064.jpg')",
+        "sections-bg":
+          "linear-gradient(to right bottom, rgba(128,128,128,1), rgba(153,153,153,0.5)), url('./images/nguyen-dang-hoang-nhu-Nne2TxFHPyQ-unsplash.jpg')",
       },
     },
   },
