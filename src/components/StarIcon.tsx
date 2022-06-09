@@ -1,10 +1,7 @@
 import React, { FC } from "react";
+import { StarProps } from "../models/types.types";
 
-interface Props {
-  rating: number;
-}
-
-const StarIcon: FC<Props> = (props) => {
+const StarIcon: FC<StarProps> = (props) => {
   return (
     <>
       <svg

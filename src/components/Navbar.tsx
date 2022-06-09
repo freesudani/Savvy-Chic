@@ -2,13 +2,9 @@ import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
+import { ArrangmentProps } from "../models/types.types";
 
-interface Props {
-  setOpenSidebar: (arg: boolean) => void;
-  openSidebar: boolean;
-}
-
-const Navbar: FC<Props> = (props) => {
+const Navbar: FC<ArrangmentProps> = (props) => {
   return (
     <>
       <div className="static w-screen h-32 m-0 px-8 bg-transparent text-black flex justify-end items-center">

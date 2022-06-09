@@ -1,13 +1,7 @@
 import React from "react";
 import Section from "./Section.tsx";
 import { data } from "../data/Sectiondata.ts";
-
-interface itemProps {
-  id: number;
-  title: string;
-  image: string;
-  path: string;
-}
+import { itemProps } from "../models/types.types";
 
 const Sections = () => {
   return (

@@ -1,13 +1,9 @@
 import React, { FC } from "react";
 import Navbar from "./Navbar.tsx";
 import StoreImg from "../images/willian-justen-de-vasconcellos-8lX8jl0y3CI-unsplash.jpg";
+import { ArrangmentProps } from "../models/types.types";
 
-interface Props {
-  setOpenSidebar: (arg: boolean) => void;
-  openSidebar: boolean;
-}
-
-const Arrangment: FC<Props> = (props) => {
+const Arrangment: FC<ArrangmentProps> = (props) => {
   return (
     <div className="relative h-screen mb:h-[75rem]  w-screen bg-hero-bg bg-no-repeat bg-center bg-cover">
       <Navbar

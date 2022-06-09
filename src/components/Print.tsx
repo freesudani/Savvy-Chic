@@ -1,7 +1,10 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router";
 import ShirtPrintImg from "../images/shirtprinting_prev_ui.png";
 
 const Print: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex justify-around items-center bg-print-bg h-100  bg-no-repeat bg-cover bg-center px-10 py-5">
       <div className=" 2xl:mt-72 mb:mt-28 md:ml-0 sm:text-center sm:ml-0  -translate-y-20">
@@ -15,7 +18,12 @@ const Print: FC = () => {
           <br /> colors and styles.
         </p>
         <div className="flex justify-start">
-          <button className="secondarybt lgbt">Learn More</button>
+          <button
+            className="secondarybt lgbt"
+            onClick={() => navigate("/welcome/printing-details")}
+          >
+            Learn More
+          </button>
         </div>
       </div>
       <div className="mb:-mt-40">

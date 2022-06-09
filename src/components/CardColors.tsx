@@ -1,12 +1,7 @@
 import React, { FC } from "react";
+import { CardColorProps } from "../models/types.types";
 
-interface Props {
-  boxcolors: string[];
-  colorPick: string;
-  setColorPick: any;
-}
-
-const CardColors: FC<Props> = (props) => {
+const CardColors: FC<CardColorProps> = (props) => {
   return (
     <>
       {props.boxcolors.map((col, i) => (

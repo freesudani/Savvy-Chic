@@ -1,12 +1,6 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
-
-interface StoresProps {
-  id: number;
-  title: string;
-  image: string;
-  path: string;
-}
+import { StoresProps } from "../models/types.types";
 
 const Section: FC<StoresProps> = (props) => {
   const navigate = useNavigate();
@@ -26,7 +20,7 @@ const Section: FC<StoresProps> = (props) => {
       <div>
         <button
           className="primarybt lgbt w-full px-5"
-          onClick={() => navigate(`/section/${props.path}`)}
+          onClick={() => navigate(`/sections/${props.path}`)}
         >
           Click For Details
         </button>

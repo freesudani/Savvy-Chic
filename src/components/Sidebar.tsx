@@ -2,13 +2,9 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
+import { ArrangmentProps } from "../models/types.types";
 
-interface Props {
-  setOpenSidebar: (arg: boolean) => void;
-  openSidebar: boolean;
-}
-
-const Sidebar: FC<Props> = (props) => {
+const Sidebar: FC<ArrangmentProps> = (props) => {
   return (
     <div
       className={`z-10 absolute  h-screen w-screen  bg-primary-100 text-white grid items-center  ${

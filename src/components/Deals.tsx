@@ -1,13 +1,8 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import { DealsProps } from "../models/types.types";
 
-interface Props {
-  title: string;
-  image: string;
-  path: string;
-}
-
-const Deals: FC<Props> = ({ title, image, path }) => {
+const Deals: FC<DealsProps> = ({ title, image, path }) => {
   return (
     <div className="flex flex-col justify-around items-center">
       <div>
