@@ -41,3 +41,11 @@ export interface itemProps {
 export interface StarProps {
   rating: number;
 }
+
+export interface MachinesProps {
+  id: number;
+  title: string;
+  details: string;
+  table: ("high" | "medium" | "low")[];
+  image: string;
+}

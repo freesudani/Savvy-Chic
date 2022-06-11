@@ -32,6 +32,7 @@ module.exports = {
       backgroundImage: {
         "hero-bg": "url('./images/blob-haikei.svg')",
         "print-bg": "url('./images/wave-haikei.svg')",
+        "type-bg": "url('./images/blob-scatter-haikei.svg')",
         "partner-bg":
           "linear-gradient(to right bottom, rgba(128,128,128,1), rgba(153,153,153,0.5)), url('./images/Womens-Accessories-1.jpg')",
         "subscribe-bg":
