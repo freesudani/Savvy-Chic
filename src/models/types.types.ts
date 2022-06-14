@@ -45,7 +45,7 @@ export interface StarProps {
 export interface MachinesProps {
   id: number;
   title: string;
+  subtitle: string;
   details: string;
   table: ("high" | "medium" | "low")[];
-  image: string;
 }
