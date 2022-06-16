@@ -1,10 +1,18 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
 import { ArrangmentProps } from "../models/types.types";
+import SignIn from "./SignIn.tsx";
 
 const Navbar: FC<ArrangmentProps> = (props) => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const closeHandler = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setOpen(false);
+  };
+
   return (
     <>
       <div className="static w-screen h-32 m-0 px-8 bg-transparent text-black flex justify-end items-center">
@@ -44,7 +52,12 @@ const Navbar: FC<ArrangmentProps> = (props) => {
           ))}
         </nav>
         <div className="flex px-4 items-center md:hidden ">
-          <button className="px-4 outlinedbt smbt uppercase">Sign In</button>
+          <button
+            className="px-4 outlinedbt smbt uppercase"
+            onClick={() => setOpen(true)}
+          >
+            Sign In
+          </button>
           <div className="relative px-5 cursor-pointer active:translate-y-1 transition-all duration-300 ">
             <div className="absolute top-0 right-2 bg-red-700 text-white rounded w-6 h-6 flex justify-center items-center">
               0
@@ -65,6 +78,7 @@ const Navbar: FC<ArrangmentProps> = (props) => {
             </svg>
           </div>
         </div>
+        <SignIn open={open} onClose={closeHandler} />
       </div>
     </>
   );

@@ -49,3 +49,8 @@ export interface MachinesProps {
   details: string;
   table: ("high" | "medium" | "low")[];
 }
+
+export interface SignInProps {
+  open: boolean;
+  onClose: () => void;
+}
