@@ -3,14 +3,23 @@ import { NavLink } from "react-router-dom";
 import { data } from "../data/Navbardata.ts";
 import { Links } from "../models/types.ts";
 import { ArrangmentProps } from "../models/types.types";
+import Cart from "./Cart.tsx";
 import SignIn from "./SignIn.tsx";
+import { useSelector } from "react-redux";
 
 const Navbar: FC<ArrangmentProps> = (props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [openCart, setOpenCart] = useState<boolean>(false);
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const closeHandler = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setOpen(false);
+  };
+
+  const closeCartHandler = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setOpenCart(false);
   };
 
   return (
@@ -58,9 +67,12 @@ const Navbar: FC<ArrangmentProps> = (props) => {
           >
             Sign In
           </button>
-          <div className="relative px-5 cursor-pointer active:translate-y-1 transition-all duration-300 ">
+          <div
+            className="relative px-5 cursor-pointer active:translate-y-1 transition-all duration-300 "
+            onClick={() => setOpenCart(true)}
+          >
             <div className="absolute top-0 right-2 bg-red-700 text-white rounded w-6 h-6 flex justify-center items-center">
-              0
+              {cartQuantity}
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +91,7 @@ const Navbar: FC<ArrangmentProps> = (props) => {
           </div>
         </div>
         <SignIn open={open} onClose={closeHandler} />
+        <Cart open={openCart} onClose={closeCartHandler} />
       </div>
     </>
   );
