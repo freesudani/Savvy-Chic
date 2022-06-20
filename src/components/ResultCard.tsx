@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import StarIcon from "./StarIcon.tsx";
 import CardColors from "./CardColors.tsx";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/CartSlice.ts";
 
-const ResultCard = ({ item }) => {
+const ResultCard: FC = ({ item }) => {
+  const dispatch = useDispatch();
   const [favPick, setFavPick] = useState(false);
   const [colorPick, setColorPick] = useState("");
   const [quantity, setQuantity] = useState(0);
+
+  const {
+    title,
+    price,
+    rating,
+    colors,
+    numberofreviews,
+    id,
+    size,
+    outofStock,
+  } = item;
 
   const favPickHandler = () => {
     setFavPick(!favPick);
@@ -28,7 +42,16 @@ const ResultCard = ({ item }) => {
   };
 
   const addToCartHandler = () => {
-    console.log("Item added to Cart");
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        title,
+        price,
+        size,
+        colors,
+        outofStock,
+      })
+    );
   };
 
   return (
@@ -57,16 +80,16 @@ const ResultCard = ({ item }) => {
         </div>
       </div>
       <div className="flex justify-around items-center mt-4">
-        <h4 className="text-3xl uppercase">{item.title}</h4>
+        <h4 className="text-3xl uppercase">{title}</h4>
         <h4>
-          <span className="text-2xl">{item.price}</span>
+          <span className="text-2xl">{price}</span>
           $/pieace
         </h4>
       </div>
 
       <div className="flex justify-around items-center w-3/4 mt-7">
-        <StarIcon rating={item.rating} />
-        <h5>{item.numberofreviews} reviews</h5>
+        <StarIcon rating={rating} />
+        <h5>{numberofreviews} reviews</h5>
       </div>
       <div className="grid grid-cols-2 mt-5 mx-1">
         <div>
@@ -75,12 +98,12 @@ const ResultCard = ({ item }) => {
             <CardColors
               setColorPick={setColorPick}
               colorPick={colorPick}
-              boxcolors={item.colors}
+              boxcolors={colors}
             />
           </div>
           <div className="flex justify-start items-center mt-5">
             <h6 className="text-2xl">Total Price</h6>
-            <h6 className="text-4xl ml-3 ">{item.price * quantity}$</h6>
+            <h6 className="text-4xl ml-3 ">{price * quantity}$</h6>
           </div>
         </div>
         <div>

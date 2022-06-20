@@ -18,7 +18,7 @@ const cartSlice = createSlice({
           quantity: 1,
           totalPrice: newItem.price,
           name: newItem.title,
-          color: newItem.color,
+          color: newItem.colors,
           size: newItem.size,
         });
       } else {

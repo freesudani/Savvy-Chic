@@ -5,7 +5,7 @@ import { cartActions } from "../store/CartSlice.ts";
 const CartItem = (props) => {
   const dispatch = useDispatch();
 
-  const { title, quantity, total, price, id, color, size } = props.item;
+  const { title, quantity, total, price, id, colors, size } = props.item;
 
   const removeItemHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
@@ -18,7 +18,7 @@ const CartItem = (props) => {
         title,
         price,
         size,
-        color,
+        colors,
       })
     );
   };
@@ -34,7 +34,7 @@ const CartItem = (props) => {
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <body className="text-xl">{color}</body>
+        <body className="text-xl">{colors}</body>
         <body className="text-xl">{size}</body>
       </div>
 
