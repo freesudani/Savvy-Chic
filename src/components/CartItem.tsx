@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/CartSlice.ts";
+import { useSelector } from "react-redux";
 
 const CartItem = (props) => {
   const dispatch = useDispatch();
+  const cartColor = useSelector((state) => state.cart.choosenColor);
 
-  const { title, quantity, total, price, id, colors, size } = props.item;
+  const { title, quantity, price, id, colors, size } = props.item;
 
   const removeItemHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
@@ -28,13 +30,13 @@ const CartItem = (props) => {
   };
 
   return (
-    <div className="flex justify-between items-center pb-5 border-b-4">
+    <div className="grid grid-cols-5 justify-items-center items-center justify-center pb-5 mt-5 border-b-4">
       <div>
         <h1 className="text-4xl uppercase">{title}</h1>
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <body className="text-xl">{colors}</body>
+        <body className="text-xl">{cartColor}</body>
         <body className="text-xl">{size}</body>
       </div>
 

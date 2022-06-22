@@ -1,10 +1,17 @@
 import React, { FC } from "react";
 import { CardColorProps } from "../models/types.types";
+import { useSelector } from "react-redux";
 
 const CardColors: FC<CardColorProps> = (props) => {
+  let cartColor = useSelector((state) => state.cart.choosenColor);
+
   return (
     <>
-      {props.boxcolors.map((col, i) => (
+      {props.boxcolors.map((col, i) => {
+        if (props.colorPick === col) {
+          cartColor = props.colorPick;
+        }
+
         <button
           className="cursor-pointer"
           onClick={() => props.setColorPick(col)}
@@ -30,8 +37,8 @@ const CardColors: FC<CardColorProps> = (props) => {
               </svg>
             )}
           </div>
-        </button>
-      ))}
+        </button>;
+      })}
     </>
   );
 };

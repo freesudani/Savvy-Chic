@@ -6,6 +6,7 @@ import Footer from "./components/Footer.tsx";
 import NewlyArrived from "./pages/NewlyArrived.tsx";
 import PickupDelivery from "./pages/PickupDelivery.tsx";
 import PrintDetails from "./pages/PrintDetails.tsx";
+import CheckoutOrder from "./pages/CheckoutOrder.tsx";
 /* import Sidebar from "./components/Sidebar.tsx"; */
 
 const App: FC = () => {
@@ -19,6 +20,7 @@ const App: FC = () => {
         <Route path="/sections" element={<StoreSections />} />
         <Route path="/new" element={<NewlyArrived />} />
         <Route path="/delivery" element={<PickupDelivery />} />
+        <Route path="/checkout" element={<CheckoutOrder />} />
       </Routes>
       <Footer />
     </div>

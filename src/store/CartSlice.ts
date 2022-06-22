@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
+    choosenColor: "",
   },
   reducers: {
     addItemToCart(state, action) {
@@ -39,6 +40,8 @@ const cartSlice = createSlice({
 
     deleteItemFromCart(state, action) {
       const id = action.payload;
+      const foundItem = state.items.find((item) => item.id === id);
+      state.totalQuantity = state.totalQuantity - foundItem.quantity;
       state.items = state.items.filter((item) => item.id !== id);
     },
   },

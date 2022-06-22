@@ -5,6 +5,14 @@ import { useSelector } from "react-redux";
 const Cart = ({ open, onClose }) => {
   const cartItems = useSelector((state) => state.cart.items);
 
+  const totalprice = cartItems.reduce(function (prev, cur) {
+    return prev + cur.price;
+  }, 0);
+
+  const totalquantity = cartItems.reduce(function (prev, cur) {
+    return prev + cur.quantity;
+  }, 0);
+
   return (
     <div
       className={`fixed h-min z-10 inset-72 ml-[25rem] lg:ml-[7rem] md:ml-[0rem] md:inset-60 sm:inset-52 mb:inset-0 mb:mt-60 rounded-lg ${
@@ -38,8 +46,10 @@ const Cart = ({ open, onClose }) => {
         ))}
         <div className="p-4 mr-4">
           <div className="flex justify-end items-center">
-            <h1 className="mr-4 text-2xl">Total Price</h1>
-            <h1 className="text-2xl text-red-600 bold">100$</h1>
+            <h1 className="mr-4 text-4xl">Total Price</h1>
+            <h1 className="text-5xl text-red-600  bold">
+              {totalprice * totalquantity}$
+            </h1>
           </div>
           <div className="flex justify-end items-center pt-4">
             <button className="smbt primarybt">Checkout</button>

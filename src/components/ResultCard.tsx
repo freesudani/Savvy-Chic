@@ -25,22 +25,6 @@ const ResultCard: FC = ({ item }) => {
     setFavPick(!favPick);
   };
 
-  const incrementHandler = () => {
-    if (quantity > 19) {
-      setQuantity(0);
-    } else {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const decrementHandler = () => {
-    if (quantity < 1) {
-      setQuantity(20);
-    } else {
-      setQuantity(quantity - 1);
-    }
-  };
-
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -48,7 +32,7 @@ const ResultCard: FC = ({ item }) => {
         title,
         price,
         size,
-        colors,
+        colors: colorPick,
         outofStock,
       })
     );
@@ -136,31 +120,6 @@ const ResultCard: FC = ({ item }) => {
               />
               <span className="ml-2 text-xl">lg</span>
             </label>
-          </div>
-          <div className="mt-6">
-            <h6 className="text-2xl">Select Quantity</h6>
-            <div className="flex flex-row h-10 w-10/12 mt-3 rounded-lg relative bg-transparent">
-              <button
-                onClick={decrementHandler}
-                data-action="decrement"
-                className=" bg-secondary-200 text-black  hover:bg-secondary-100 h-full w-20 rounded-l cursor-pointer outline-none  border-2 border-black border-solid"
-              >
-                <span className="m-auto text-2xl font-thin">−</span>
-              </button>
-              <input
-                type="text"
-                className="outline-none focus:outline-none text-center w-full bg-secondary-200 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-black"
-                name="custom-input-number"
-                value={`${quantity}`}
-              />
-              <button
-                onClick={incrementHandler}
-                data-action="increment"
-                className="bg-secondary-200 text-black  hover:bg-secondary-100 h-full w-20 rounded-l cursor-pointer outline-none border-2 border-black border-solid"
-              >
-                <span className="m-auto text-2xl font-thin">+</span>
-              </button>
-            </div>
           </div>
         </div>
       </div>
